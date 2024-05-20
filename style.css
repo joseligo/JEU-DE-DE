@@ -1,0 +1,19 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(to right, grey 50%, rgb(210, 210, 209) 50%);
+}
+
+.bi {
+  color: red;
+}
+.active {
+  background-color: red;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.dice {
+  background-color: white;
+  height: auto;
+  font-size: 5rem;
+}
