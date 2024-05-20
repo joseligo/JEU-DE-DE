@@ -1,9 +1,11 @@
-let currentPlayer = 0; //défini le player 1 comme celui qui débute
 let currentScores = document.querySelectorAll(".currentScore"); //récupérer les scores courants dans un tableau
+let scoresTotaux = document.querySelectorAll(".totalScore");
 
 let roll = document.querySelector("#roll"); //pour lancer le dé
 let hold = document.querySelector("#hold"); //pour finir son tour et récupérer les points
 let lancer = document.getElementById("lancer"); //pour changer l'image du dé
+
+reset();
 
 function entierAleatoire(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -18,9 +20,6 @@ function lancerDe() {
       parseInt(currentScores[currentPlayer].innerHTML) + nb;
   }
 }
-roll.addEventListener("click", lancerDe);
-
-let scoresTotaux = document.querySelectorAll(".totalScore");
 
 function finRound() {
   scoresTotaux[currentPlayer].innerHTML =
@@ -32,7 +31,6 @@ function finRound() {
     changePlayer();
   }
 }
-hold.addEventListener("click", finRound);
 
 function changePlayer() {
   currentScores[currentPlayer].innerHTML = 0;
@@ -57,6 +55,8 @@ function reset() {
   currentScores.forEach(element => element.innerHTML = 0);
   scoresTotaux.forEach(element => element.innerHTML = 0);
   currentPlayer = 0;
+  document.getElementById(`dot0`).classList.add("active");
+  document.getElementById(`dot1`).classList.remove("active");
   roll.addEventListener("click", lancerDe);
   hold.addEventListener("click", finRound);
 }
